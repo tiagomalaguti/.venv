@@ -1,12 +1,19 @@
 import contract
 import load_data
+import interface
+
+class sap():
+    def executar(self):
+        
+        contratos = contract.ordem()
+        listas = load_data.Listas()
+        contratos.acesso_ordem()
+        listas.load_data()
 
 
 def main():
-    listas = load_data.Listas()
-    contratos = contract.ordem
-    listas.load_data()
-    contratos.acesso_ordem()
+    interfaces = interface.telas.tela_inicial()
+    interfaces.tela_inicial()
     
     
 

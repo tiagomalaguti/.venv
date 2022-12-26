@@ -4,7 +4,7 @@ import win32com.client
 cpp_fora = []
 
 class contratos():
-    def atribui_contrato (self):
+    def atribui_contrato ():
         SapGuiAuto = win32com.client.GetObject("SAPGUI")
         application = SapGuiAuto.GetScriptingEngine
         connection = application.Children(0)
