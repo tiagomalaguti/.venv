@@ -10,9 +10,8 @@ class sap():
 
 
 def main():
-    interfaces = interface.telas.tela_inicial()
-    interfaces.tela_inicial()
-    
+    interfaces = interface.telas()
+    interface.telas.tela_inicial()
     
 
 
