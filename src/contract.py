@@ -20,7 +20,7 @@ class ordem():
         session.findById("wnd[0]/tbar[0]/okcd").text = "/niw32"
         session.findById("wnd[0]/tbar[0]/btn[0]").press()
 
-        # .replace(" ", "")   # "500061970237"
+        # .replace(" ", "")   # "500061834777"
         session.findById("wnd[0]/usr/ctxtCAUFVD-AUFNR").text = str(ordem_teste)
         session.findById("wnd[0]/tbar[1]/btn[18]").press()
 
@@ -33,6 +33,8 @@ class ordem():
                 session.findById("wnd[0]/usr/subSUB_ALL:SAPLCOIH:3001/ssubSUB_LEVEL:SAPLCOIH:1300/tabsTS_1300/tabpEINK").select()
                 
                 buscar_contrato.atribui_contrato()
+                
+                
                 t = session.findById("wnd[0]/usr/subSUB_ALL:SAPLCOIH:3001/ssubSUB_LEVEL:SAPLCOIH:1300/subSUB_KMP:SAPLCOMD:3001/txtRESBD-POSNR").text
                 print(t) 
                 session.findById("wnd[0]/tbar[1]/btn[39]").press()
