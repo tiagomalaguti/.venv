@@ -3,11 +3,11 @@ import load_data
 import interface
 
 class sap():
-    def executar(self):
+    def executar(self, ordem_teste):
         
         contratos = contract.ordem()
         listas = load_data.Listas()
-        contratos.acesso_ordem()
+        contratos.acesso_ordem(ordem_teste)
         listas.load_data()
 
 

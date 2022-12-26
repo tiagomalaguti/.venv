@@ -1,23 +1,23 @@
 from tkinter import *
 from tkinter import ttk
 import main
-ordem = ""
 
 class telas:
-    ordem = ""
+    global ordem_teste
+    
     def atualizar_dados():
         texto = Label(janela, text="mudou")
         texto.grid(column=1, row=2)
         janela.update_idletasks()
 
-    def chamar_funcao():
-        print(ordem)
+    def chamar_funcao(): 
+        ordem_teste = ordem.get()
         chamar = main.sap()
-        chamar.executar()
+        chamar.executar(ordem_teste)
 
     def tela_inicial():
-        global janela
         global ordem
+        global janela
         janela = Tk()
         janela.geometry("400x400")
         janela.minsize(900, 900)

@@ -3,7 +3,7 @@ import load_contract
 import interface
 
 class ordem():
-    def acesso_ordem(self):
+    def acesso_ordem(self, ordem_teste):
         
 
         x = interface.telas()
@@ -20,7 +20,8 @@ class ordem():
         session.findById("wnd[0]/tbar[0]/okcd").text = "/niw32"
         session.findById("wnd[0]/tbar[0]/btn[0]").press()
 
-        session.findById("wnd[0]/usr/ctxtCAUFVD-AUFNR").text = x.ordem   # "500061970237"
+        # .replace(" ", "")   # "500061970237"
+        session.findById("wnd[0]/usr/ctxtCAUFVD-AUFNR").text = str(ordem_teste)
         session.findById("wnd[0]/tbar[1]/btn[18]").press()
 
         session.findById("wnd[0]/usr/subSUB_ALL:SAPLCOIH:3001/ssubSUB_LEVEL:SAPLCOIH:1101/tabsTS_1100/tabpMUEB/ssubSUB_AUFTRAG:SAPLCOMK:3020/btnBTN_MKAG").press()
