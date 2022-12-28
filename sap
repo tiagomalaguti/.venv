@@ -13,4 +13,7 @@ If IsObject(WScript) Then
    WScript.ConnectObject application, "on"
 End If
 session.findById("wnd[0]").maximize
-session.findById("wnd[0]/tbar[0]/btn[11]").press
+session.findById("wnd[0]/usr/tblSAPMM06ETC_0220").columns.elementAt(13).width = 3
+session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/lblRM06E-LOEKZ[13,20]").setFocus
+session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/lblRM06E-LOEKZ[13,20]").caretPosition = 0
+session.findById("wnd[0]").sendVKey 2
