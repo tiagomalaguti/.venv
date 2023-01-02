@@ -10,11 +10,11 @@ import interface
 
 
 def main():
-    #interfaces = interface.telas()
-    #interface.telas.tela_inicial()
+    interfaces = interface.telas()
+    interface.telas.tela_inicial()
     
-    atualizar = load_data.atualiza()
-    atualizar.baixar_dados()
+    #atualizar = load_data.atualiza()
+    #atualizar.baixar_dados()
   
     
 

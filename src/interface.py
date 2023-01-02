@@ -3,12 +3,6 @@ from tkinter import ttk
 import main
 
 class telas:
-    global ordem_teste
-    
-    def atualizar_dados():
-        texto = Label(janela, text="mudou")
-        texto.grid(column=1, row=2)
-        janela.update_idletasks()
 
     def chamar_funcao(): 
         ordem_teste = ordem.get()

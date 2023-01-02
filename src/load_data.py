@@ -57,7 +57,7 @@ class atualiza():
             self.descricao_cont.append(session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/txtEKPO-TXZ01[4,0]").text)
             self.contrato_cont.append(session.findById("wnd[0]/usr/ctxtRM06E-EVRTN").text)
             self.valor_cont.append(session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/txtEKPO-NETPR[7,0]").text)
-            i = i + 20
+            i = i + 1
             session.findById("wnd[0]/usr/tblSAPMM06ETC_0220").verticalScrollbar.position = i
             
         
