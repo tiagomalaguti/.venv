@@ -1,6 +1,7 @@
 from openpyxl import load_workbook
 import win32com.client
-
+import os
+import csv
 
 class Listas:
     def __init__(self):
@@ -40,28 +41,53 @@ class atualiza():
         connection = application.Children(0)
         session = connection.Children(0)
         
-        session.findById("wnd[0]").maximize
-        session.findById("wnd[0]/tbar[0]/okcd").text = "/nme33k"
+        session.findById("wnd[0]/tbar[0]/okcd").text = "/nme3n"
         session.findById("wnd[0]/tbar[0]/btn[0]").press()
+      
+      #---------------------------------------------------
+        session.findById("wnd[0]/usr/ctxtEN_EBELN-LOW").text = "4600176606"
+        session.findById("wnd[0]/usr/ctxtLISTU").text = "ALLES_ALV"
+        session.findById("wnd[0]/tbar[1]/btn[8]").press()
+
+        current_path = os.getcwd()
+        save_path = current_path + '/'
         
-        # 4600176606
-        session.findById("wnd[0]/usr/ctxtRM06E-EVRTN").text = "4600176606"
-        session.findById("wnd[0]/tbar[0]/btn[0]").press()
-        i = 0
-        while True:
-            teste = session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/ctxtEKPO-EMATN[3,0]").text
-            if str(teste[0]) in "_":
-                break
-            self.item_cont.append(session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/txtRM06E-EVRTP[0,0]").text)
-            self.cpp_cont.append(session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/ctxtEKPO-EMATN[3,0]").text)
-            self.descricao_cont.append(session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/txtEKPO-TXZ01[4,0]").text)
-            self.contrato_cont.append(session.findById("wnd[0]/usr/ctxtRM06E-EVRTN").text)
-            self.valor_cont.append(session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/txtEKPO-NETPR[7,0]").text)
-            i = i + 1
-            session.findById("wnd[0]/usr/tblSAPMM06ETC_0220").verticalScrollbar.position = i
+        session.findById("wnd[0]/tbar[1]/btn[45]").press()
+
+
+        session.findById("wnd[1]/tbar[0]/btn[0]").press()
+        session.findById("wnd[1]/usr/ctxtDY_PATH").text = save_path
+        session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "SAP.txt"
+        session.findById("wnd[1]/tbar[0]/btn[11]").press()
+      # ---------------------------------------------------
+        f = open('SAP.txt', 'r')
+
+
+        aux = ""
+        conteudo = f.readlines()
+        for linha in conteudo:
+            if (linha[0] == '|'):
+                aux += linha
+        arquivo = open('SAP.txt', 'w')
+        arquivo.writelines(aux)
+        arquivo.close()
+
+      # ---------------------------------------------------
+        with open('SAP.txt', 'r') as f:
             
-        
+            reader = csv.reader(f.readlines()[1:], delimiter='|')
+
+           
+
+            for row in reader:
+                self.cpp_cont.append(row[1].replace(" ", ""))
+                self.descricao_cont.append(row[2])
+                self.item_cont.append(row[3])
+                self.contrato_cont.append(row[4])
+                self.valor_cont.append(row[5])
+
         base.load_data()
+      # ----------------------------------------------
         status = 0
         for linha_contrato in range(len(self.cpp_cont)):
             for linha_base in range(len(base.cpp)):

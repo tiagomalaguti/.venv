@@ -13,7 +13,9 @@ If IsObject(WScript) Then
    WScript.ConnectObject application, "on"
 End If
 session.findById("wnd[0]").maximize
-session.findById("wnd[0]/usr/tblSAPMM06ETC_0220").columns.elementAt(13).width = 3
-session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/lblRM06E-LOEKZ[13,20]").setFocus
-session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/lblRM06E-LOEKZ[13,20]").caretPosition = 0
-session.findById("wnd[0]").sendVKey 2
+session.findById("wnd[0]/tbar[1]/btn[45]").press
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\547058\Desktop\projeto\Lancamento_custo\.venv/"
+session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = "SAP.txt"
+session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 7
+session.findById("wnd[1]/tbar[0]/btn[11]").press
