@@ -32,7 +32,7 @@ class atualiza():
         self.contrato_cont = []
         self.valor_cont = []
 
-    def baixar_dados(self):
+    def baixar_dados(self,contrato):
         
         base = Listas()
 
@@ -45,7 +45,8 @@ class atualiza():
         session.findById("wnd[0]/tbar[0]/btn[0]").press()
       
       #---------------------------------------------------
-        session.findById("wnd[0]/usr/ctxtEN_EBELN-LOW").text = "4600176606"
+      # 4600176606
+        session.findById("wnd[0]/usr/ctxtEN_EBELN-LOW").text = contrato
         session.findById("wnd[0]/usr/ctxtLISTU").text = "ALLES_ALV"
         session.findById("wnd[0]/tbar[1]/btn[8]").press()
 
